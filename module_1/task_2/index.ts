@@ -15,8 +15,8 @@ interface CarStatus {
 interface Car extends CarBasicInfo, CarStatus {
     getCarInfo: () => CarBasicInfo;
     getCarStatus: () => CarStatus;
-    updateCarInfo: (info: CarBasicInfo) => void;
-    updateCarStatus: (status: CarStatus) => void;
+    updateCarInfo: (info: Partial<CarBasicInfo>) => void;
+    updateCarStatus: (status: Partial<CarStatus>) => void;
 }
 
 {
@@ -48,20 +48,20 @@ interface Car extends CarBasicInfo, CarStatus {
             }
         },
     
-        updateCarInfo (info: CarBasicInfo) {
-            this.color = info.color;
-            this.year = info.year;
-            this.tradeMark = info.tradeMark;
-            this.race = info.race;
+        updateCarInfo (info: Partial<CarBasicInfo>) {
+            this.color = info.color ?? this.color;
+            this.year = info.year ?? this.year;
+            this.tradeMark = info.tradeMark ?? this.tradeMark;
+            this.race = info.race ?? this.race;
     
             return this.getCarInfo();
         },
     
-        updateCarStatus (status) {
-            this.isWheelsAble = status.isWheelsAble;
-            this.isControlAble = status.isControlAble;
-            this.isConditionerAble = status.isConditionerAble;
-            this.isLightAble = status.isLightAble;
+        updateCarStatus (status: Partial<CarStatus>) {
+            this.isWheelsAble = status.isWheelsAble ?? this.isWheelsAble;
+            this.isControlAble = status.isControlAble ?? this.isControlAble;
+            this.isConditionerAble = status.isConditionerAble ?? this.isConditionerAble;
+            this.isLightAble = status.isLightAble ?? this.isLightAble;
     
             return this.getCarStatus();
         }
@@ -70,16 +70,12 @@ interface Car extends CarBasicInfo, CarStatus {
     console.log(newCar.getCarInfo());
     console.log(newCar.getCarStatus());
     console.log(newCar.updateCarInfo({
-        tradeMark: newCar.tradeMark,
         color: 'blue',
-        race: 0,
         year: 2023,
     }));
     console.log(newCar.updateCarStatus({
-        isWheelsAble: newCar.isWheelsAble,
         isControlAble: true,
         isConditionerAble: true,
-        isLightAble: newCar.isLightAble,
     }))
     
 }
