@@ -8,7 +8,7 @@ const TaskList: React.FC<TaskListProps> = ({ taskList }) => {
         <ul>
             {
                 taskList.map(task => {
-                    return <TaskComponent task={task}/>
+                    return <TaskComponent key={task.id} task={task}/>
                 })
             }
         </ul>

@@ -1,0 +1,39 @@
+* {
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.figtree-light {
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.figtree-bold {
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.task-manager {
+    min-width: 100%;
+    min-height: 100vh;
+    background-color: #d4cdff;
+}
+
+.header {
+    font-size: 42px;
+    color: #483793;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    padding: 40px;
+}

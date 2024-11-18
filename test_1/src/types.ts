@@ -7,6 +7,7 @@ export type Task = {
     assignee?: string;
     deadline?: Date;
     place?: string;
+    id: number;
 }
 
 type TaskType = 'work' | 'home' | 'study' | 'family';

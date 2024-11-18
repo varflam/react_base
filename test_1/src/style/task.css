@@ -1,0 +1,77 @@
+.task {
+    display: block;
+    max-width: 600px;
+    padding: 20px 20px 25px;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
+    background: white;
+    color: #5179a4;
+
+    .task__info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .task__type {
+        padding: 7px;
+        border-radius: 8px;
+    }
+
+    .task__type--home {
+        background: #fde9ea;
+        color: #de8488;
+    }
+
+    .task__type--family {
+        background: #cddff3;
+        color: #5179a4;
+    }
+
+    .task__type--study {
+        color: #dda788;
+        background: #fcf8ee;
+    }
+
+    .task__type--work {
+        color: #84d7b7;
+        background: #ebfffa;
+    }
+
+    .task__main {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .task__name {
+        margin: 10px 0 15px;
+    }
+
+    .task__assignee {
+        background: #5179a4;
+        color: white;
+        padding: 7px;
+        border-radius: 8px;
+    }
+
+    .task__description {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    .task__status {
+        padding: 7px;
+        border-radius: 8px;
+        width: fit-content;
+    }
+
+    .task__status--in-progress {
+        color: #dda788;
+        background: #fcf8ee;
+    }
+
+    .task__status--done {
+        color: #84d7b7;
+        background: #ebfffa;
+    }
+}
