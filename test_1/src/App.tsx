@@ -9,11 +9,22 @@ function App() {
         {
             name: 'Clean bathroom',
             status: 'In progress',
-            type: 'work',
+            type: 'home',
             assignee: 'David',
             date: new Date(2024, 3, 3),
             description: 'Clean bath, sink and toilet',
             id: 1,
+        },
+        {
+            name: 'Clean bathroom',
+            status: 'In progress',
+            type: 'work',
+            assignee: 'David',
+            date: new Date(2024, 3, 3),
+            description: 'Clean bath, sink and toilet',
+            deadline: new Date(2024, 3, 3),
+            place: 'Home',
+            id: 2,
         }
     ]
     return (

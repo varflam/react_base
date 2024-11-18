@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
 import { Task } from '../types';
 
+import cross from '../assets/cross.svg';
+import location from '../assets/location.svg';
 import '../style/task.css';
 
 
@@ -35,13 +37,19 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
             </div>
             <div className="task__content">
                 <div className='task__description'>{task.description}</div>
-                <div className={statusClassName}>{task.status}</div>
-                {task.deadline ? (
-                    <div>{task.deadline.toLocaleDateString()}</div>
-                ) : null}
                 {task.place ? (
-                    <div>{task.place}</div>
+                    <div className="task__row">
+                        <img src={location} alt="Location" className="task__img" />
+                        <div>{task.place}</div>
+                    </div>
                 ) : null}
+                {task.deadline ? (
+                    <div className='task__row'>
+                        <img className='task__img' src={cross} alt="deadline" />
+                        <div>{task.deadline.toLocaleDateString()}</div>
+                    </div>
+                ) : null}
+                <div className={statusClassName}>{task.status}</div>
             </div>
 
         </li>
