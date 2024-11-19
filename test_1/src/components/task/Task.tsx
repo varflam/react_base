@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import { Task } from '../types';
 
-import cross from '../assets/cross.svg';
-import location from '../assets/location.svg';
-import '../style/task.css';
+import cross from '../../assets/cross.svg';
+import location from '../../assets/location.svg';
+import './task.css';
+import { Task } from '../../types';
 
 
 type TaskProps = {
