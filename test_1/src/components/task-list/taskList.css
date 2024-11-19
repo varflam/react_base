@@ -1,0 +1,38 @@
+.task-list {
+    margin-top: 15px;
+
+    .task-list__btn {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        color: #483793;
+        cursor: pointer;
+
+        &:hover {
+            color: #35218f;
+        }
+    }
+
+    .task-list__icon {
+        width: 1em;
+        height: 1em;
+    }
+
+    .task-list__ul {
+        padding-left: 0;
+    }
+
+    .task-list__input {
+        background: none;
+        border: none;
+        border-bottom: 2px solid #35218f;
+        outline: none;
+
+        &::placeholder {
+            color: #35218f;
+        }
+    }
+}
