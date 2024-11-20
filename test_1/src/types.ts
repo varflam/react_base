@@ -3,9 +3,9 @@ export type Task = {
     type: TaskType;
     status: 'Done' | 'In progress';
     description: string;
-    date: Date;
+    date: number;
     assignee?: string;
-    deadline?: Date;
+    deadline?: number;
     place?: string;
     id: number;
 }

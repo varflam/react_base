@@ -17,7 +17,7 @@ const initialState: InitialState = {
             status: 'In progress',
             type: 'home',
             assignee: 'David',
-            date: new Date(2024, 3, 3),
+            date: 1732102220,
             description: 'Clean bath, sink and toilet',
             id: 1,
         }

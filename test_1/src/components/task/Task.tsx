@@ -24,7 +24,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
     return (
         <li className='task'>
             <div className="task__info">
-                <div className='task__date'>{task.date.toLocaleDateString()}</div>
+                <div className='task__date'>{new Date(task.date).toLocaleDateString()}</div>
                 <div className={typeClassName}>{task.type}</div>
             </div>
             <div className="task__main">
@@ -46,7 +46,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
                 {task.deadline ? (
                     <div className='task__row'>
                         <img className='task__img' src={cross} alt="deadline" />
-                        <div>{task.deadline.toLocaleDateString()}</div>
+                        <div>{new Date(task.deadline).toLocaleDateString()}</div>
                     </div>
                 ) : null}
                 <div className={statusClassName}>{task.status}</div>
