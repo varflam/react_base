@@ -2,8 +2,11 @@ import React, { useMemo } from 'react';
 
 import cross from '../../assets/cross.svg';
 import location from '../../assets/location.svg';
+import trash from '../../assets/trash.svg';
 import './task.css';
 import { Task } from '../../types';
+import { useAppDispatch } from '../../store';
+import { removeTask } from '../../store/slices/taskListSlice';
 
 
 type TaskProps = {
@@ -11,6 +14,7 @@ type TaskProps = {
 };
 
 const TaskComponent: React.FC<TaskProps> = ({ task }) => {
+    const dispatch = useAppDispatch();
 
     const statusClassName = useMemo(() => {
         return `task__status ${task.status === 'In progress' ? 'task__status--in-progress' : 'task__status--done'}`;
@@ -19,6 +23,10 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
     const typeClassName = useMemo(() => {
         return `task__type task__type--${task.type}`;
     }, [task.type]);
+
+    const deleteTask = () => {
+        dispatch(removeTask(task.id));
+    }
 
 
     return (
@@ -52,6 +60,9 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
                 <div className={statusClassName}>{task.status}</div>
             </div>
 
+            <button className='task__delete' onClick={() => deleteTask()}>
+                <img className='task__img' src={trash} alt="Delete" />
+            </button>
         </li>
     );
 }

@@ -1,4 +1,5 @@
 .task {
+    position: relative;
     display: block;
     max-width: 600px;
     padding: 20px 20px 25px;
@@ -86,5 +87,14 @@
     .task__img {
         width: 15px;
         height: 15px;
+    }
+
+    .task__delete {
+        position: absolute;
+        background: none;
+        border: none;
+        cursor: pointer;
+        top: 50%;
+        right: -50px;
     }
 }
