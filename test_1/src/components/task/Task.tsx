@@ -1,12 +1,14 @@
-import React, { useMemo } from 'react';
+import React, { useMemo} from 'react';
 
 import cross from '../../assets/cross.svg';
 import location from '../../assets/location.svg';
 import trash from '../../assets/trash.svg';
+import edit from '../../assets/pen.svg';
 import './task.css';
 import { Task } from '../../types';
-import { useAppDispatch } from '../../store';
-import { removeTask } from '../../store/slices/taskListSlice';
+import { useAppDispatch, useAppSelector } from '../../store';
+import { removeTask, setEdit } from '../../store/slices/taskListSlice';
+import Form from '../form/Form';
 
 
 type TaskProps = {
@@ -15,6 +17,7 @@ type TaskProps = {
 
 const TaskComponent: React.FC<TaskProps> = ({ task }) => {
     const dispatch = useAppDispatch();
+    const { isEditing } = useAppSelector(state => state.tasks);
 
     const statusClassName = useMemo(() => {
         return `task__status ${task.status === 'In progress' ? 'task__status--in-progress' : 'task__status--done'}`;
@@ -24,10 +27,17 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
         return `task__type task__type--${task.type}`;
     }, [task.type]);
 
-    const deleteTask = () => {
+    const onDeleteTask = () => {
         dispatch(removeTask(task.id));
     }
 
+    const onEditTask = () => {
+        dispatch(setEdit(true));
+    }
+
+    if (isEditing) {
+        return <Form type='edit' task={task}/>
+    }
 
     return (
         <li className='task'>
@@ -60,9 +70,14 @@ const TaskComponent: React.FC<TaskProps> = ({ task }) => {
                 <div className={statusClassName}>{task.status}</div>
             </div>
 
-            <button className='task__delete' onClick={() => deleteTask()}>
-                <img className='task__img' src={trash} alt="Delete" />
-            </button>
+            <div className="task__controls">
+                <button className='task__btn' onClick={() => onDeleteTask()}>
+                    <img className='task__img' src={trash} alt="Delete" />
+                </button>
+                <button className='task__btn' onClick={() => onEditTask()}>
+                    <img className='task__img' src={edit} alt="Edit" />
+                </button>
+            </div>
         </li>
     );
 }

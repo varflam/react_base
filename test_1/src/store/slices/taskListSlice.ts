@@ -3,6 +3,7 @@ import { Task } from '../../types';
 
 type InitialState = {
     tasks: Task[];
+    isEditing: boolean;
 }
 
 type TaskEditActionPayload = {
@@ -22,6 +23,7 @@ const initialState: InitialState = {
             id: 1,
         }
     ],
+    isEditing: false,
 }
 
 const tasksSlice = createSlice({
@@ -44,15 +46,19 @@ const tasksSlice = createSlice({
                         deadline: payload.task.deadline ?? task.deadline,
                         type: payload.task.type ?? task.type,
                         status: payload.task.status ?? task.status,
+                        assignee: payload.task.assignee ?? task.assignee,
                         id: task.id
                     }
                 }
                 return task;
             })
+        },
+        setEdit: (state, { payload }: { payload: boolean }) => {
+            state.isEditing = payload;
         }
     }
 });
 
-export const { addTask, removeTask, editTask } = tasksSlice.actions;
+export const { addTask, removeTask, editTask, setEdit } = tasksSlice.actions;
 
 export default tasksSlice.reducer;
